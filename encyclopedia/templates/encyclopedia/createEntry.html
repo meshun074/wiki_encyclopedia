@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Create Entry
+{% endblock %}
+
+{% block body %}
+
+<h1>Create a New Page</h1>
+<form action="{% url 'encyclopedia:create' %}" method="post">
+    {% csrf_token %}
+    <p>Title of Page</p>
+
+    {% if Error %}
+        <input type="text" name="title" id="title"> <span><b>{{Error}}</b></span>
+        <p>Page Content</p>
+        <textarea name="content" id="content" cols="20" rows="5">{{ content }}</textarea>
+
+    {% else %}
+        <input type="text" name="title" id="title">
+        <p>Page Content</p>
+        <textarea name="content" id="content" cols="20" rows="5"></textarea>
+    {% endif %}
+
+    <p><button type="submit">Save</button></p>
+</form>
+
+{% endblock %}

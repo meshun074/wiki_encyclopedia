@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Create Entry
+{% endblock %}
+
+{% block body %}
+
+<h1>Edit "{{ entryname }}" Entry Page</h1>
+<form action="/wiki/EditEntry/{{ entryname }}" method="post">
+    {% csrf_token %}
+    <p>Page Content</p>
+    <textarea name="content" id="content" cols="20" rows="5">{{ entry }}</textarea>
+    <p><button type="submit">Save</button></p>
+</form>
+
+{% endblock %}

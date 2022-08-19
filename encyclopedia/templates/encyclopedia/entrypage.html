@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{ entryname }}
+{% endblock %}
+
+{% block body %}
+
+{% if entry %}
+    <p><a href="/wiki/EditEntry/{{ entryname }}">Edit</a></p>
+    {{ entry | safe  }}
+
+{% else %}
+ <h1>Error Message</h1>
+ <p>Requested page was no found</p>
+{% endif%}
+
+{% endblock %}
